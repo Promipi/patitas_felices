@@ -32,6 +32,7 @@ namespace Identity.Services.Repository
             _userManager = userManager; _signInManager = signInManager; _mapper = mapper;
             _context = context; _configuration = configuration;
             _roleManager = roleManager;
+            
         }
 
         public async Task<GetResponseDto<TokenInfo>> CreateUserAsync(UserCreateDto userCreateDto)
@@ -194,8 +195,9 @@ namespace Identity.Services.Repository
 
         public async Task<GetResponseDto<TokenInfo>> AddAdministratorRole(UserAdministratorDto userAdministratorDto)
         {
+            
             var response = new GetResponseDto<TokenInfo>();
-            if (userAdministratorDto.Password == _configuration["administrator_password"])
+            if (userAdministratorDto.Password == "aguantegustavo")
             {
                 var user = await _userManager.FindByIdAsync(userAdministratorDto.Id);
                 var result = await _userManager.AddToRoleAsync(user, "Administrator");

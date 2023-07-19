@@ -1,4 +1,5 @@
 ﻿
+using Microsoft.AspNetCore.Identity;
 using patitas_felices.API.Models.User;
 using patitas_felices.API.Models.User.Auth;
 using patitas_felices.API.Models.User.DTOs;

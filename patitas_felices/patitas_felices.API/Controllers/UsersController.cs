@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Threading.Tasks;
 using System;
+using Microsoft.AspNetCore.Identity;
 
 namespace patitas_felices.API.Controllers
 {
@@ -22,7 +23,7 @@ namespace patitas_felices.API.Controllers
     {
         private IUserRepository _userRepository;
 
-        public UsersController(IUserRepository userRepository)
+        public UsersController(IUserRepository userRepository, RoleManager<IdentityRole> roleManager)
         {
             _userRepository = userRepository;
         }
@@ -52,9 +53,10 @@ namespace patitas_felices.API.Controllers
             return Ok(response);
         }
 
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator")]
+        
         [HttpGet]
-        public async Task<ActionResult<GetResponseDto<User>>> Get(int page = 1, int take = 10)
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator")]
+        public async Task<ActionResult<GetResponseDto<User>>> GetAllUsers(int page = 1, int take = 10)
         {
             List<Func<User, bool>> filter = new List<Func<User, bool>>() { x => x.Id == x.Id };
             var response = await _userRepository.GetAsync(filter, page, take);
