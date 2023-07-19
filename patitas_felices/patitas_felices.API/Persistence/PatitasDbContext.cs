@@ -1,7 +1,7 @@
 ﻿
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using patitas_felices.API.Models.User;
+using patitas_felices.Common.Models.User;
 
 namespace patitas_felices.API.Persistence
 {

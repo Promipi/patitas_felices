@@ -4,15 +4,15 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using patitas_felices.API.Models.User.Auth;
-using patitas_felices.API.Models.User.DTOs;
-using patitas_felices.API.Models.User;
-using patitas_felices.Common.Responses;
 using System.Collections.Generic;
 using System.Data;
 using System.Threading.Tasks;
 using System;
 using Microsoft.AspNetCore.Identity;
+using patitas_felices.Common.Responses;
+using patitas_felices.Common.Models.User.Auth;
+using patitas_felices.Common.Models.User.DTOs;
+using patitas_felices.Common.Models.User;
 
 namespace patitas_felices.API.Controllers
 {

@@ -1,9 +1,9 @@
 ﻿
 using Microsoft.AspNetCore.Identity;
-using patitas_felices.API.Models.User;
-using patitas_felices.API.Models.User.Auth;
-using patitas_felices.API.Models.User.DTOs;
 using patitas_felices.Common;
+using patitas_felices.Common.Models.User;
+using patitas_felices.Common.Models.User.Auth;
+using patitas_felices.Common.Models.User.DTOs;
 using patitas_felices.Common.Responses;
 using System;
 using System.Collections.Generic;

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace patitas_felices.API.Models.User.DTOs
+namespace patitas_felices.Common.Models.User.DTOs
 {
     public class UserAdministratorDto
     {

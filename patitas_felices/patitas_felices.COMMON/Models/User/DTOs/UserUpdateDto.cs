@@ -4,12 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace patitas_felices.API.Models.User.DTOs
+namespace patitas_felices.Common.Models.User.DTOs
 {
-    public class UserGetDto
+    public class UserUpdateDto
     {
         public string Id { get; set; }
-        public string UserName { get; set; }
-        public string Email { get; set; }
+        public string Username { get; set; }
     }
 }

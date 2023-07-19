@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace patitas_felices.API.Models.User.Auth
+namespace patitas_felices.Common.Models.User.Auth
 {
     public class TokenInfo
     {

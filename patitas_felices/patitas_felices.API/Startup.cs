@@ -17,10 +17,10 @@ using AutoMapper;
 using patitas_felices.Mapper;
 using Identity.Services.Repository;
 using Microsoft.AspNetCore.Identity;
-using patitas_felices.API.Models.User;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using patitas_felices.Common.Models.User;
 
 namespace patitas_felices.API
 {
@@ -38,7 +38,7 @@ namespace patitas_felices.API
         {
             services.AddDbContext<PatitasDbContext>(opt =>
             {
-                opt.UseSqlServer(Configuration.GetConnectionString("Database"));
+                opt.UseSqlServer(Configuration.GetConnectionString("Hosted"));
             });
 
             services.AddCors(setupAction => setupAction.AddPolicy("PatitasPolicy", builder =>

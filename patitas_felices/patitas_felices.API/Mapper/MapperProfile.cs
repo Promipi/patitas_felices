@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using patitas_felices.API.Models.User;
-using patitas_felices.API.Models.User.DTOs;
+using patitas_felices.Common.Models.User;
+using patitas_felices.Common.Models.User.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;

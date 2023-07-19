@@ -2,11 +2,11 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
-using patitas_felices.API.Models.User;
-using patitas_felices.API.Models.User.Auth;
-using patitas_felices.API.Models.User.DTOs;
 using patitas_felices.API.Persistence;
 using patitas_felices.Common;
+using patitas_felices.Common.Models.User;
+using patitas_felices.Common.Models.User.Auth;
+using patitas_felices.Common.Models.User.DTOs;
 using patitas_felices.Common.Responses;
 using System;
 using System.Collections.Generic;
@@ -60,22 +60,28 @@ namespace Identity.Services.Repository
         public async Task<GetResponseDto<TokenInfo>> LoginAsync(LoginDto loginDto)
         {
             var response = new GetResponseDto<TokenInfo>();
+            SignInResult result = new SignInResult();
+
             var user = await _userManager.FindByEmailAsync(loginDto.Email);
             if (user == null)
             {
-                response.Message = "Invalid Credetianls";
+                response.Message = "The user doesnt exists";
             }
-
-            var result = await _signInManager.PasswordSignInAsync(user,loginDto.Password, false, true);
-            if (result.IsLockedOut) response.Message = "Your acoount is locked for any rason";
-            if(result.Succeeded)
-            {
-                response.Success = true; response.Content = await BuildToken(user);
-            }
+            
             else
             {
-                response.Message = "Invalid Credentials";
+                result = await _signInManager.PasswordSignInAsync(user, loginDto.Password, false, true);
+                if (result.IsLockedOut) response.Message = "Your acoount is locked for any rason";
+                if (result.Succeeded)
+                {
+                    response.Success = true; response.Content = await BuildToken(user);
+                }
+                else
+                {
+                    response.Message = "Invalid Credentials";
+                }
             }
+            
             return response;
         }
 

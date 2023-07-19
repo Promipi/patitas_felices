@@ -23,4 +23,8 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\patitas_felices.COMMON\patitas_felices.COMMON.csproj" />
+  </ItemGroup>
+
 </Project>
