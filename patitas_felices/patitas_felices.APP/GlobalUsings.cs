@@ -1,8 +1,8 @@
 ﻿global using CommunityToolkit.Mvvm.ComponentModel;
 global using CommunityToolkit.Mvvm.Input;
 global using patitas_felices.Common.Models;
-global using patitas_felices.Common.Responses;
 global using patitas_felices.Common;
+global using patitas_felices.APP.ViewModel;
 global using System.Collections.ObjectModel;
 global using System.ComponentModel;
 global using System.Diagnostics;

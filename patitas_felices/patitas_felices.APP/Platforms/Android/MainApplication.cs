@@ -3,7 +3,7 @@ using Android.Runtime;
 
 namespace patitas_felices.APP
 {
-    [Application]
+    [Application(UsesCleartextTraffic = true)]
     public class MainApplication : MauiApplication
     {
         public MainApplication(IntPtr handle, JniHandleOwnership ownership)

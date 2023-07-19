@@ -132,7 +132,7 @@ namespace patitas_felices.API
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-                endpoints.MapHub<IntructionHub>("/intructionHub");
+                endpoints.MapHub<InstructionHub>("/instructionHub");
             });
 
 
