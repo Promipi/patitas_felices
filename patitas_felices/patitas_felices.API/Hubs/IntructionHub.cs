@@ -9,5 +9,6 @@ namespace patitas_felices.API.Hubs
         {
             await Clients.All.SendAsync("ReceiveMessage",message);
         }
+
     }
 }
