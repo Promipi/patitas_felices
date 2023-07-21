@@ -1,6 +1,8 @@
 ﻿
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using patitas_felices.Common.Models.Feeder;
+using patitas_felices.Common.Models.Photo;
 using patitas_felices.Common.Models.User;
 
 namespace patitas_felices.API.Persistence
@@ -10,6 +12,10 @@ namespace patitas_felices.API.Persistence
         public PatitasDbContext(DbContextOptions<PatitasDbContext> options) : base(options) { }
 
         public DbSet<User> Users { get; set; }
+
+        public DbSet<Feeder> Feeders {get;set;}
+
+        public DbSet<Photo> Photos { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

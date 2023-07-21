@@ -182,7 +182,7 @@ namespace Identity.Services.Repository
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["api_key"])); //for now the private key is matita
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
-            var expiration = DateTime.UtcNow.AddDays(2);
+            var expiration = DateTime.UtcNow.AddDays(30);
 
             JwtSecurityToken token = new JwtSecurityToken(
                issuer: null,

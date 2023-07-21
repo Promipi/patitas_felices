@@ -22,8 +22,15 @@ namespace patitas_felices.APP
                 });
 
             builder.Services.AddSingleton<MainPage>();
+
             builder.Services.AddSingleton<LoginFormViewModel>();
+            builder.Services.AddSingleton<FeedersViewModel>();
+            builder.Services.AddSingleton<FeederDetailsViewModel>();
+            builder.Services.AddSingleton<PhotosViewModel>();
+
             builder.Services.AddTransient<FeedersPage>();
+            builder.Services.AddTransient<FeederDetailsPage>();
+            builder.Services.AddTransient<PhotosPage>();
 
             return builder.Build();
         }

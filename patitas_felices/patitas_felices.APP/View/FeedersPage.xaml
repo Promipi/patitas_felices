@@ -1,12 +1,73 @@
-<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
+    
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="patitas_felices.APP.View.FeedersPage"
-             Title="FeedersPage"
              BackgroundColor="{StaticResource PrimaryColor}"
+             xmlns:model="clr-namespace:patitas_felices.Common.Models.Feeder;assembly=patitas_felices.COMMON"
+             xmlns:viewmodel="clr-namespace:patitas_felices.APP.ViewModel"
+             x:DataType="viewmodel:FeedersViewModel"
+             Title="Comederos"
              >
 
-    <Grid>
+    <Grid ColumnDefinitions="*,*"
+          ColumnSpacing="5"
+          RowDefinitions="*,Auto"
+          RowSpacing="0">
+
+        <CollectionView BackgroundColor="Transparent"
+                        Grid.ColumnSpan="2"
+                        x:Name="MyCollectionView"
+                         ItemsSource="{Binding Feeders}"
+                        SelectionMode="None">
+            
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:Feeder">
+                    <Grid Padding="10">
+                        <Frame HeightRequest="125"
+                               Padding="0"
+                               Style="{StaticResource CardView}"
+                               >
+
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer 
+                                       CommandParameter="{Binding .}"
+                                       Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:FeedersViewModel}}, Path=GoToDetailsCommand}"
+                                    />
+                            </Frame.GestureRecognizers>
+
+                            <Grid ColumnDefinitions="125,*">
+
+                                <Image Aspect="AspectFill" 
+                                       Source="{Binding Image}" 
+                                       WidthRequest="125" 
+                                       HeightRequest="125" />
+
+                                <VerticalStackLayout Grid.Column="1"
+                                                     Padding="10"
+                                                     VerticalOptions="Center">
+                                    <Label Text="{Binding Name}" Style="{StaticResource LargeLabel}"></Label>
+                                    <Label Text="{Binding Location}" Style="{StaticResource LargeLabel}"></Label>
+                                </VerticalStackLayout>
+
+                            </Grid>
+                        </Frame>
+                        
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+
+        <ActivityIndicator 
+            IsVisible="{Binding IsBusy}"
+            IsRunning="{Binding IsBusy}"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="CenterAndExpand"
+            Grid.ColumnSpan="2"
+            Grid.RowSpan="2"
+        />
+
         
     </Grid>
 

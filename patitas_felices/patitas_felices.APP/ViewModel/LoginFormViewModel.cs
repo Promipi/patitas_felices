@@ -27,7 +27,8 @@ namespace patitas_felices.APP.ViewModel
         [RelayCommand]
         async Task Login()
         {
-            var url = $"{StaticData.ConnectionApi}";
+            await Shell.Current.GoToAsync($"//{nameof(FeedersPage)}");
+            /*var url = $"{StaticData.ConnectionApi}";
             HttpClient client = new HttpClient();
             var loginDto = new LoginDto() { Email= email, Password = password };
             var resultLogin = await client.PostAsJsonAsync<LoginDto>($"{url}/api/users/LogIn", loginDto); //send the petition to login in our API
@@ -35,12 +36,12 @@ namespace patitas_felices.APP.ViewModel
             if(result.Success == true)
             {
                 StaticData.TokenUser = result.Content;
-                await Shell.Current.GoToAsync($"{nameof(FeedersPage)}", true);
+                await Shell.Current.GoToAsync($"//{nameof(FeedersPage)}");
             }
             else
             {
                 await Shell.Current.DisplayAlert("Error en el Login", result.Message, "Ok");
-            }
+            }*/
 
         
         }

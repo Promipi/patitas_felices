@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="patitas_felices.APP.View.FeederDetailsPage"
+             xmlns:viewmodel="clr-namespace:patitas_felices.APP.ViewModel"
+             x:DataType="viewmodel:FeederDetailsViewModel"
+             Title="{Binding Feeder.Name}"
+             >
+
+    <ScrollView>
+        <Grid RowDefinitions="Auto,Auto,*">
+            <BoxView
+                BackgroundColor="{StaticResource Primary}"
+                Grid.RowSpan="2"
+                HorizontalOptions="Fill"
+                VerticalOptions="Fill"/>
+
+            <Border StrokeShape="RoundRectangle 80"
+                    Stroke="White"
+                    StrokeThickness="6"
+                    HeightRequest="160"
+                    WidthRequest="160"
+                    Margin="0,8,0,0"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+                <Image Aspect="AspectFill"
+                        HeightRequest="160"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        Source="{Binding Feeder.Image}"
+                        WidthRequest="160"/>
+            </Border>
+
+            <Label Style="{StaticResource LargeLabel}" 
+                   Grid.Row="1"
+                   TextColor="White"
+                   FontAttributes="Bold"
+                   Text="{Binding Feeder.Name}" 
+                   HorizontalOptions="Center"
+                   Margin="0,0,0,8"/>
+
+            <VerticalStackLayout Grid.Row="2" Padding="10" Spacing="10"  >
+
+                <Label Text="Opciones" HeightRequest="50" TextColor="{StaticResource PrimaryColor}"
+                       HorizontalOptions="Center" VerticalOptions="Center" FontSize="Title"
+                       ></Label>
+
+                
+                <Button Text="Horarios" 
+                        BackgroundColor="{StaticResource PrimaryColor}" 
+                        TextColor="{StaticResource SecondaryColor}"
+                        HeightRequest="100"
+                        Command=""
+                        />
+                
+                <Button Text="Ver Fotos" 
+                        BackgroundColor="{StaticResource PrimaryColor}" 
+                        TextColor="{StaticResource SecondaryColor}"
+                        HeightRequest="100"
+                        Command="{Binding GoToPhotosCommand}"
+                        />
+                        
+            </VerticalStackLayout>
+
+        </Grid>
+    </ScrollView>
+
+</ContentPage>

@@ -4,6 +4,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:patitas_felices.APP"
+    xmlns:views="clr-namespace:patitas_felices.APP.View"
     Shell.FlyoutBehavior="Disabled">
 
     <Shell.Resources>
@@ -27,5 +28,14 @@
         Title="Inicio de sesion"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
+
+    <ShellContent
+        Title="Comederos"
+        Route="FeedersPage" 
+        ContentTemplate="{DataTemplate views:FeedersPage}"
+        />
+    
+    
+
 
 </Shell>

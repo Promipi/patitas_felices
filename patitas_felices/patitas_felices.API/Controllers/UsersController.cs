@@ -19,6 +19,7 @@ namespace patitas_felices.API.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [EnableCors("PatitasPolicy")]
+    
     public class UsersController : ControllerBase
     {
         private IUserRepository _userRepository;
@@ -55,16 +56,17 @@ namespace patitas_felices.API.Controllers
 
         
         [HttpGet]
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator")]
+        
         public async Task<ActionResult<GetResponseDto<User>>> GetAllUsers(int page = 1, int take = 10)
         {
             List<Func<User, bool>> filter = new List<Func<User, bool>>() { x => x.Id == x.Id };
+           
             var response = await _userRepository.GetAsync(filter, page, take);
             if (!response.Success) return BadRequest(response);
             return Ok(response);
         }
 
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        
         [HttpGet("{id}")]
         public async Task<ActionResult<GetResponseDto<UserGetDto>>> Get(string id)
         {
@@ -74,7 +76,7 @@ namespace patitas_felices.API.Controllers
         }
 
 
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        
         [HttpDelete("{id}")]
         public async Task<ActionResult<DeleteResponseDto>> Delete(string id, [FromQuery] string password)
         {
@@ -83,7 +85,7 @@ namespace patitas_felices.API.Controllers
             return Ok(response);
         }
 
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        
         [HttpPut]
         public async Task<ActionResult<PostResponseDto<UserGetDto>>> Update(UserUpdateDto userUpdateDto)
         {

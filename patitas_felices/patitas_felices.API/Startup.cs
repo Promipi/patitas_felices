@@ -21,6 +21,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using patitas_felices.Common.Models.User;
+using patitas_felices.API.Repositories;
 
 namespace patitas_felices.API
 {
@@ -41,15 +42,10 @@ namespace patitas_felices.API
                 opt.UseSqlServer(Configuration.GetConnectionString("Hosted"));
             });
 
-            services.AddCors(setupAction => setupAction.AddPolicy("PatitasPolicy", builder =>
-            {
-                builder.AllowAnyOrigin()
-                       .AllowAnyMethod()
-                       .AllowAnyHeader();
-            }));
-
             services.AddSignalR();
+
             services.AddControllers();
+
             services.AddSwaggerGen(setupAction =>
             {
                 setupAction.SwaggerDoc("v1", new OpenApiInfo { Title = "patitas_felices.API", Version = "v1" });
@@ -90,6 +86,13 @@ namespace patitas_felices.API
                 opt.Lockout = new LockoutOptions() { AllowedForNewUsers = false };
             }).AddEntityFrameworkStores<PatitasDbContext>().AddDefaultTokenProviders();
 
+            services.AddCors(setupAction => setupAction.AddPolicy("PatitasPolicy", builder =>
+            {
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            }));
+
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).
             AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, options => {
                 options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters()
@@ -108,6 +111,7 @@ namespace patitas_felices.API
             }).CreateMapper());
 
             services.AddTransient< IUserRepository, UserRepository>();
+            services.AddTransient<IFeederRepository, FeederRepository>();
 
 
         }

@@ -9,6 +9,8 @@ namespace patitas_felices.APP
         {
             InitializeComponent();
             Routing.RegisterRoute(nameof(FeedersPage), (typeof(FeedersPage)));
+            Routing.RegisterRoute(nameof(FeederDetailsPage), (typeof(FeederDetailsPage)));
+            Routing.RegisterRoute(nameof(PhotosPage), (typeof(PhotosPage)));
         }
     }
 }
