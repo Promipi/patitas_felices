@@ -8,9 +8,9 @@ namespace patitas_felices.APP
         public AppShell()
         {
             InitializeComponent();
-            Routing.RegisterRoute(nameof(FeedersPage), (typeof(FeedersPage)));
-            Routing.RegisterRoute(nameof(FeederDetailsPage), (typeof(FeederDetailsPage)));
-            Routing.RegisterRoute(nameof(PhotosPage), (typeof(PhotosPage)));
+            Routing.RegisterRoute("FeedersPage", (typeof(FeedersPage)));
+            Routing.RegisterRoute("FeedersPage/FeederDetailsPage",(typeof(FeederDetailsPage)));
+            Routing.RegisterRoute("FeedersPage/FeederDetailsPage/PhotosPage", (typeof(PhotosPage)));
         }
     }
 }

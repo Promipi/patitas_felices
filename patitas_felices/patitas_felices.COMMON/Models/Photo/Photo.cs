@@ -9,12 +9,12 @@ namespace patitas_felices.Common.Models.Photo
 {
    public class Photo
     {
-        public int Id { get; set; }
+        public string Id { get; set; } = Guid.NewGuid().ToString();
 
         public string Link { get; set; }
 
-        [ForeignKey("UserId")]
-        public string UserId { get; set; }
+        [ForeignKey("FeederId")]
+        public string FeederId { get; set; }
 
         public DateTime DateCreated { get; set; }
     }

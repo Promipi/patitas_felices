@@ -4,17 +4,46 @@
              x:Class="patitas_felices.APP.View.PhotosPage"
              xmlns:viewmodel="clr-namespace:patitas_felices.APP.ViewModel"
              x:DataType="viewmodel:PhotosViewModel"
-             Title="PhotosPage"
-             
+             xmlns:model="clr-namespace:patitas_felices.Common.Models.Photo;assembly=patitas_felices.COMMON"
+             Title="PhotosPage" 
              >
-   
-    
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
-    
-    
+
+
+    <Grid ColumnDefinitions="*,*"
+          ColumnSpacing="5"
+          RowDefinitions="*,Auto"
+          RowSpacing="0">
+
+        <CollectionView BackgroundColor="Transparent"
+                        Grid.ColumnSpan="2"
+                        x:Name="MyCollectionView"
+                         ItemsSource="{Binding Photos}"
+                        SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:Photo">
+
+                    <Grid Padding="10">
+                        <Image Aspect="AspectFill" 
+                                       Source="{Binding Link}" 
+                                       WidthRequest="250" 
+                                       HeightRequest="225" />
+                        
+                    </Grid>
+
+                        
+
+
+
+                </DataTemplate>
+             </CollectionView.ItemTemplate>
+        </CollectionView>
+
+
+
+
+    </Grid>
+
+
+
+
 </ContentPage>

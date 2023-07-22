@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using patitas_felices.API.Persistence;
 
 namespace patitas_felices.API.Migrations
 {
     [DbContext(typeof(PatitasDbContext))]
-    partial class PatitasDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230721194515_PhotosTableAdded")]
+    partial class PhotosTableAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

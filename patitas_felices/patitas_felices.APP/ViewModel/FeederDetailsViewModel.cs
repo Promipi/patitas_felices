@@ -14,7 +14,7 @@ namespace patitas_felices.APP.ViewModel
     {
 
         [ObservableProperty]
-        Photo feeder;
+        Feeder feeder;
 
         public FeederDetailsViewModel()
         {
@@ -24,10 +24,10 @@ namespace patitas_felices.APP.ViewModel
         [RelayCommand]
         public async Task GoToPhotos()
         {
-            await Shell.Current.GoToAsync($"{nameof(FeederDetailsPage)}", true,
+            await Shell.Current.GoToAsync($"{nameof(PhotosPage)}", true,
                new Dictionary<string, object>
                {
-                    {"feederId",this.feeder.Id}
+                    {"feederId",Feeder.Id}
                });
         }
 

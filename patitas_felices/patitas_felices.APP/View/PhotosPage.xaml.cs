@@ -17,7 +17,6 @@ public partial class PhotosPage : ContentPage
     {
         _vm.IsBusy = true;
         await _vm.LoadAsync();
-
         _vm.IsBusy = false;
     }
 }

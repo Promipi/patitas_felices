@@ -112,7 +112,7 @@ namespace patitas_felices.API
 
             services.AddTransient< IUserRepository, UserRepository>();
             services.AddTransient<IFeederRepository, FeederRepository>();
-
+            services.AddTransient<IPhotoRepository, PhotoRepository>();
 
         }
 

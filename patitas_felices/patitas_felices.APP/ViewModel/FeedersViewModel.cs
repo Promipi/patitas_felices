@@ -1,6 +1,7 @@
 ﻿using Microsoft.Maui.ApplicationModel.Communication;
 using patitas_felices.APP.View;
 using patitas_felices.Common.Models.Feeder;
+using patitas_felices.Common.Models.Photo;
 using patitas_felices.Common.Models.User.Auth;
 using patitas_felices.Common.Responses;
 using System;

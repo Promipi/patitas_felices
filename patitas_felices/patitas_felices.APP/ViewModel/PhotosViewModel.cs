@@ -1,4 +1,5 @@
-﻿using patitas_felices.Common.Models.Feeder;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using patitas_felices.Common.Models.Feeder;
 using patitas_felices.Common.Models.Photo;
 using patitas_felices.Common.Responses;
 using System;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 namespace patitas_felices.APP.ViewModel
 {
     [QueryProperty("feederId", "feederId")]
-    public class PhotosViewModel : BaseViewModel
+    public partial class PhotosViewModel : BaseViewModel
     {
         string feederId { get; set; }
 
@@ -27,7 +28,17 @@ namespace patitas_felices.APP.ViewModel
             //do the task
             var url = $"{StaticData.ConnectionApi}";
             HttpClient client = new HttpClient();
-            var result = await client.GetFromJsonAsync<GetResponseDto<DataCollection<Photo>>>($"{url}"); //send the petition to get feeders
+            GetResponseDto<DataCollection<Photo>> result = new GetResponseDto<DataCollection<Photo>>();
+            try
+            {
+                result = await client.GetFromJsonAsync<GetResponseDto<DataCollection<Photo>>>($"{url}/api/Photos?page=1&take=10&feederId=b8%3A27%3Aeb%3A6e%3Ac9%3A59"); //send the petition to get feeders
+                
+            }
+            catch ( Exception ex )
+            {
+                var e = ex;
+            }
+            
 
             if (result.Success == true)
             {

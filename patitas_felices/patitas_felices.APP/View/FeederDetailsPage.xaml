@@ -50,7 +50,6 @@
                         BackgroundColor="{StaticResource PrimaryColor}" 
                         TextColor="{StaticResource SecondaryColor}"
                         HeightRequest="100"
-                        Command=""
                         />
                 
                 <Button Text="Ver Fotos" 

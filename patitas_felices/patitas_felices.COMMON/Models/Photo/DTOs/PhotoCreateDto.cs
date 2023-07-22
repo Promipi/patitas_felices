@@ -11,9 +11,8 @@ namespace patitas_felices.Common.Models.Photo.DTOs
     {
         public string Link { get; set; }
 
-        [ForeignKey("UserId")]
-        public string UserId { get; set; }
-
+        [ForeignKey("FeederId")]
+        public string FeederId { get; set; }
         public DateTime DateCreated { get; set; }
     }
 }
