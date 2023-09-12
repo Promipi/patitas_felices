@@ -2,26 +2,28 @@ import RPi.GPIO as GPIO
 import time
 import subprocess
 
-# declare the sensor and led pin
-sensor_pin = 23
+pir_sensor= 23
 
-# GPIO setup
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(sensor_pin, GPIO.IN)
 
-print("Sensor iniciado!")
+GPIO.setup(pir_sensor, GPIO.IN)
+
+current_state = 0
+
 try:
     while True:
-        if GPIO.input(sensor_pin):
-            # If no object is near
-            while GPIO.input(sensor_pin):
-                time.sleep(0.2)
-        else:
-            # If an object is detected
-            cmd = ['python', 'photo_uploader.py']
+        time.sleep(0.1)
+        current_state = GPIO.input(pir_sensor)
+        if current_state == 1:
+            print("GPIO pin %s is %s" % (pir_sensor, current_state))
+            print("hello")
+            time.sleep(10)
+            cmd = ['python3','photo_uploader.py']
             subprocess.Popen(cmd).wait()
-            time.sleep(1)
-            
+            current_state = 0
+
 except KeyboardInterrupt:
+    pass
+finally:
     GPIO.cleanup()
