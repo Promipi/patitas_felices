@@ -3,8 +3,10 @@ import sys
 sys.path.append("./")
 from signalrcore.hub_connection_builder import HubConnectionBuilder
 
+def getsall(x):
+    print(x)
 
-server_url = "http://192.168.1.191:5000/instructionHub"
+server_url = "http://54.85.141.173/intructionHub"
 handler = logging.StreamHandler()
 handler.setLevel(logging.DEBUG)
 hub_connection = HubConnectionBuilder()\
@@ -17,6 +19,8 @@ hub_connection = HubConnectionBuilder()\
 
 hub_connection.on_open(lambda: print("connection opened and handshake received ready to send messages"))
 hub_connection.on_close(lambda: print("connection closed"))
+hub_connection.on("ReceiveMessage", lambda x : print(x) )
+
 
 
 hub_connection.start()
