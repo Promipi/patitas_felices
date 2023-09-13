@@ -10,7 +10,6 @@ public partial class PhotosPage : ContentPage
 		InitializeComponent();
         BindingContext = _vm = phtotosViewModel;
         LoadAfterConstruction();
-
     }
 
     private async void LoadAfterConstruction()
@@ -19,4 +18,5 @@ public partial class PhotosPage : ContentPage
         await _vm.LoadAsync();
         _vm.IsBusy = false;
     }
+
 }

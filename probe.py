@@ -4,7 +4,7 @@ sys.path.append("./")
 from signalrcore.hub_connection_builder import HubConnectionBuilder
 
 
-server_url = "http://54.85.141.173/intructionHub"
+server_url = "http://192.168.1.191:5000/instructionHub"
 handler = logging.StreamHandler()
 handler.setLevel(logging.DEBUG)
 hub_connection = HubConnectionBuilder()\

@@ -6,7 +6,7 @@ from signalrcore.hub_connection_builder import HubConnectionBuilder
 def do_instruction(instruction): #function to receive the intruction to do
     print(instruction)
 
-server_url =  "http://54.85.141.173/intructionHub"
+server_url =  "http://192.168.1.191:5000/instructionHub"
 handler = logging.StreamHandler()
 handler.setLevel(logging.DEBUG)
 hub_connection = HubConnectionBuilder()\

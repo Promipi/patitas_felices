@@ -12,17 +12,17 @@
 
     <Grid>
         <StackLayout Margin="20">
-            <Image Source="logo.png" HeightRequest="50"  HorizontalOptions="StartAndExpand"/>
+            
 
             <StackLayout Margin="0,80">
-                <Label Style="{StaticResource welcome}" FontSize="32" Text="Welcome Back"/>
+                <Label Style="{StaticResource welcome}" FontSize="32" Text="Bienvenido!"/>
                 <Label FontFamily="OpenSansRegular" TextColor="{StaticResource SecondaryColor}" 
-                       FontSize="16" Text="Sign in to continue"/>
+                       FontSize="16" Text="Inicia sesion para continuar"/>
             </StackLayout>
 
             <StackLayout>
                 <Label FontFamily="OpenSansRegular" TextColor="{StaticResource SecondaryColor}" 
-                       FontSize="16" Text="Username"/>
+                       FontSize="16" Text="Usuario"/>
                 <Grid Margin="0,5">
                     <Frame Opacity="0.3" BackgroundColor="White" CornerRadius="5"/>
                     <Entry BackgroundColor="Transparent" Placeholder="Enter username" 
@@ -34,7 +34,7 @@
                 </Grid>
 
                 <Label FontFamily="OpenSansRegular" TextColor="{StaticResource SecondaryColor}" 
-                       FontSize="16" Text="Password"/>
+                       FontSize="16" Text="Contraseña"/>
                 <Grid Margin="0,5">
                     <Frame Opacity="0.3" BackgroundColor="White" CornerRadius="5"/>
                     <Entry BackgroundColor="Transparent" Placeholder="Enter password" 
@@ -46,17 +46,17 @@
             </StackLayout>
 
             <Button Margin="0,15" BackgroundColor="{StaticResource SecondaryColor}"
-                    Text="Sign in" TextColor="{StaticResource PrimaryColor}" FontFamily="OpenSansBold"
+                    Text="Iniciar Sesion" TextColor="{StaticResource PrimaryColor}" FontFamily="OpenSansBold"
                     Command="{Binding LoginCommand}"
                     />
 
             <StackLayout VerticalOptions="FillAndExpand" Orientation="Horizontal">
 
                 <Label FontFamily="OpenSansRegular" TextColor="{StaticResource SecondaryColor}" 
-                       FontSize="16" Text="Forgot Password?" VerticalOptions="EndAndExpand" HorizontalOptions="StartAndExpand" 
+                       FontSize="16" Text="Olvido la contraseña?" VerticalOptions="EndAndExpand" HorizontalOptions="StartAndExpand" 
                        />
                 <Label FontFamily="OpenSansRegular" TextColor="{StaticResource SecondaryColor}" 
-                       FontSize="16" Text="Register"  VerticalOptions="EndAndExpand" 
+                       FontSize="16" Text="Registrarse"  VerticalOptions="EndAndExpand" 
                        HorizontalOptions="EndAndExpand" 
                        />
             </StackLayout>
