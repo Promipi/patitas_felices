@@ -27,10 +27,12 @@ namespace patitas_felices.APP
             builder.Services.AddSingleton<FeedersViewModel>();
             builder.Services.AddSingleton<FeederDetailsViewModel>();
             builder.Services.AddSingleton<PhotosViewModel>();
+            builder.Services.AddSingleton<SchedulesViewModel>();
 
             builder.Services.AddTransient<FeedersPage>();
             builder.Services.AddTransient<FeederDetailsPage>();
             builder.Services.AddTransient<PhotosPage>();
+            builder.Services.AddTransient<SchedulesPage>();
 
             return builder.Build();
         }

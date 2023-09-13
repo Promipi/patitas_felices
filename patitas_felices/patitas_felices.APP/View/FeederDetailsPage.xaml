@@ -49,10 +49,11 @@
                        ></Label>
 
                 
-                <Button Text="Horarios" 
+                <Button Text="Horarios " 
                         BackgroundColor="{StaticResource PrimaryColor}" 
                         TextColor="{StaticResource SecondaryColor}"
                         HeightRequest="100"
+                        Command="{Binding GoToSchedulesCommand}"
                         />
                 
                 <Button Text="Ver Fotos" 

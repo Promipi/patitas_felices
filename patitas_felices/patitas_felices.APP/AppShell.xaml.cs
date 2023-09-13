@@ -11,6 +11,8 @@ namespace patitas_felices.APP
             Routing.RegisterRoute("FeedersPage", (typeof(FeedersPage)));
             Routing.RegisterRoute("FeedersPage/FeederDetailsPage",(typeof(FeederDetailsPage)));
             Routing.RegisterRoute("FeedersPage/FeederDetailsPage/PhotosPage", (typeof(PhotosPage)));
+            Routing.RegisterRoute("FeedersPage/FeederDetailsPage/SchedulesPage", (typeof(SchedulesPage)));
+
         }
     }
 }

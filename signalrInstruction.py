@@ -1,44 +1,36 @@
 import logging
 import sys
 import subprocess
+import time
 sys.path.append("./") #searchh modules
 from signalrcore.hub_connection_builder import HubConnectionBuilder
 from getmac import get_mac_address as gma
-
-
-def dispensate():
-    cmd = ['python3','dispense2.py']
-    subprocess.Popen(cmd).wait()
-    cmd2 = ['python3','dispense1.py']
-    subprocess.Popen(cmd2).wait()
-    cmd3 = ['python3', 'rele.py']
-    subprocess.Popen(cmd3).wait()
-    time.sleep(1000)
-    
+import connection
 
 def do_instruction(instruction,con): #function to receive the intruction
     msg = instruction[0].split(" ")
     print(msg) 
     if(msg[0]  == "dispensate"):
-        dispensate()
+        cmdDispensate = ['python3', 'dispensateAll.py']
+        subprocess.Popen(cmdDispensate).wait()
+
     if(msg[0] == "addSchedule"):
         feederId = msg[1]
         content = msg[2]
-        if(my_mac == feederId):
-            #lets do it
-            connection.addSchedule(feederId,content)
+        #if(my_mac == feederId):
+        #lets do it
+        connection.addSchedule(feederId,content)
+            
     if(msg[0] == "getSchedules"):
         feederId = msg[1]
-        if(my_mac == feederId):
-            print("sex")
-            result = connection.getSchedules(feederId)
-            try:
-                con.send("SendMessage", ["HOLA"])
-                print(con)
-                con.send("SendMessage",[f"SchedulesReceived {feederId} {result}"])
-            except Exception as e: print(e)
+        #if(my_mac == feederId):
+        print("sex")
+        result = connection.getSchedules(feederId)
+        try:
+            con.send("SendMessage",[f"SchedulesReceived {feederId} {result}"])
+        except Exception as e: print(e)
 
-server_url =  "http://54.85.141.173/intructionHub"
+server_url =  "http://192.168.1.191:5000/instructionHub"
 handler = logging.StreamHandler()
 handler.setLevel(logging.DEBUG)
 hub_connection = HubConnectionBuilder()\

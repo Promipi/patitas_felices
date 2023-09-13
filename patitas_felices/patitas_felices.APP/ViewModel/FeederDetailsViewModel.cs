@@ -31,6 +31,16 @@ namespace patitas_felices.APP.ViewModel
                });
         }
 
+        [RelayCommand]
+        public async Task GoToSchedules()
+        {
+            await Shell.Current.GoToAsync($"{nameof(SchedulesPage)}", true,
+                new Dictionary<string, object>
+                {
+                    {"feederId", Feeder.Id }
+                });
+        }
+
     }
 
 }

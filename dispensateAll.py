@@ -1,4 +1,5 @@
 import subprocess
+import time 
 
 cmd = ['python3','dispense2.py']
 subprocess.Popen(cmd).wait()

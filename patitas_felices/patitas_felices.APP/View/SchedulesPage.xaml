@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="patitas_felices.APP.View.SchedulesPage"
+             xmlns:viewmodel="clr-namespace:patitas_felices.APP.ViewModel"
+             x:DataType="viewmodel:SchedulesViewModel"
+             xmlns:model="clr-namespace:patitas_felices.COMMON.Models.Schedule;assembly=patitas_felices.COMMON"
+             Title="SchedulesPage">
+
+    <VerticalStackLayout>
+
+        <CollectionView BackgroundColor="Transparent"
+                    Grid.ColumnSpan="2"
+                    x:Name="MyCollectionView"
+                    ItemsSource="{Binding Schedules}"
+                    SelectionMode="None">
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:Schedule">
+                    <Grid Padding="10">
+                        <Frame HeightRequest="125"
+                           Padding="0"
+                           Style="{StaticResource CardView}"
+                           >
+
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer 
+
+                                />
+                            </Frame.GestureRecognizers>
+
+                            <Grid ColumnDefinitions="125,*">
+
+                                <VerticalStackLayout Grid.Column="1"
+                                                 Padding="10"
+                                                 VerticalOptions="Center">
+                                    <Label Text="{Binding Time}" Style="{StaticResource LargeLabel}"></Label>
+                                </VerticalStackLayout>
+
+                            </Grid>
+                        </Frame>
+
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+
+        <Frame BackgroundColor="Black" Opacity="1"  CornerRadius="5">
+            <Entry Placeholder="Ingrese Horario en Fromato (00:00)"
+               TextColor="White" Margin="5,0"
+               PlaceholderColor="Gray" IsPassword="False" MaxLength="5" VerticalTextAlignment="Center"
+               Text="{Binding Time}"
+            />
+            
+        </Frame>
+
+        <Button Text="Añadir Horario" Command="{Binding AddScheduleCommand}">
+            
+        </Button>
+
+        <ActivityIndicator 
+            IsVisible="{Binding IsBusy}"
+            IsRunning="{Binding IsBusy}"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="CenterAndExpand"
+            Grid.ColumnSpan="2"
+            Grid.RowSpan="2"
+        />
+
+
+    </VerticalStackLayout>
+
+
+</ContentPage>

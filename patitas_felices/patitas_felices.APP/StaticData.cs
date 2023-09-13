@@ -9,7 +9,7 @@ namespace patitas_felices.APP
 {
     public static class StaticData
     {
-        public static string ConnectionApi = "http://192.168.19.177:5000";
+        public static string ConnectionApi = "http://192.168.1.191:5000";
         public static TokenInfo TokenUser { get; set; }
     }
 }
